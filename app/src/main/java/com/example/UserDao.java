@@ -9,3 +9,13 @@ public interface UserDao {
     int getRentedMovieCount(int userId);
 }
 @Delete void returnMovie(Rental r);
+new Thread(() -> {
+    Rental r = db.rentalDao().getRentalByUserIdAndMovieId(userId, movie.id);
+    if (r != null) {
+        db.rentalDao().returnMovie(r);
+        movie.copiesAvailable += 1;
+        db.movieDao().updateMovie(movie);
+    }
+    runOnUiThread(this::refreshList);
+}).start();
+
