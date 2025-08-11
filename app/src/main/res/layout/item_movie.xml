@@ -1,0 +1,7 @@
+<!-- item_movie.xml (IDs utilisés) -->
+<ImageView android:id="@+id/movie_image_view" ... />
+<TextView  android:id="@+id/movie_title_text_view" ... />
+<TextView  android:id="@+id/movie_description_text_view" ... />
+<TextView  android:id="@+id/copies_available_text_view" ... />
+<Button    android:id="@+id/rent_button" ... />
+<Button    android:id="@+id/trailer_button" ... />
