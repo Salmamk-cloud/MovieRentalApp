@@ -39,5 +39,18 @@ private void seedIfEmptyThenLoadAll() {
         runOnUiThread(this::refreshList);
     }).start();
 }
+private List<Movie> createDefaultMovies() {
+    List<Movie> movies = new ArrayList<>();
+    movies.add(new Movie("Inception","Un cambrioleur infiltre les rêves.",
+        "https://image.tmdb.org/t/p/w500/qmDpIHrmpJINaRKAfWQfftjCdyi.jpg",
+        "https://www.youtube.com/watch?v=YoHD9XEInc0",5));
+    movies.add(new Movie("The Matrix","La réalité est une simulation.",
+        "https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg",
+        "https://www.youtube.com/watch?v=vKQi3bBA1y8",3));
+    movies.add(new Movie("Interstellar","Voyage au-delà de notre galaxie.",
+        "https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg",
+        "https://www.youtube.com/watch?v=zSWdZVtXT7E",7));
+    return movies;
+}
 
 
