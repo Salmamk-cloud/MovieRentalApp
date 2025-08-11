@@ -8,3 +8,4 @@ public interface UserDao {
     @Query("SELECT COUNT(id) FROM rentals WHERE userId = :userId")
     int getRentedMovieCount(int userId);
 }
+@Delete void returnMovie(Rental r);
