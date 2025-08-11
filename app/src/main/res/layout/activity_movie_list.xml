@@ -1,0 +1,5 @@
+<!-- activity_movie_list.xml (IDs utilisés) -->
+<RecyclerView android:id="@+id/movies_recycler_view" ... />
+<Button android:id="@+id/rented_movies_button" ... />
+<Button android:id="@+id/all_movies_button" ... />
+<Button android:id="@+id/profile_button" ... />
