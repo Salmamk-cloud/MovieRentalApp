@@ -7,3 +7,6 @@ if (extras != null) {
     tvMovieDescription.setText(description);
     if (posterUrl != null && !posterUrl.isEmpty()) Picasso.get().load(posterUrl).into(ivMoviePoster);
 }
+btnRentMovie.setOnClickListener(v ->
+    Toast.makeText(this, "Louer : " + tvMovieTitle.getText().toString(), Toast.LENGTH_SHORT).show()
+);
