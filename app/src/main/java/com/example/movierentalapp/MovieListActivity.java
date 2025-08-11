@@ -52,5 +52,19 @@ private List<Movie> createDefaultMovies() {
         "https://www.youtube.com/watch?v=zSWdZVtXT7E",7));
     return movies;
 }
+adapter = new MovieAdapter(
+    movie -> {
+        if (userId == -1) { Toast.makeText(this,"Reconnectez-vous",Toast.LENGTH_SHORT).show(); return; }
+        new Thread(() -> {
+            Rental existing = db.rentalDao().getRentalByUserIdAndMovieId(userId, movie.id);
+            if (existing != null) { runOnUiThread(() -> Toast.makeText(this,"Déjà loué",Toast.LENGTH_SHORT).show()); return; }
+            if (movie.copiesAvailable <= 0) { runOnUiThread(() -> Toast.makeText(this,"Plus de copies",Toast.LENGTH_SHORT).show()); return; }
+            db.rentalDao().rentMovie(new Rental(userId, movie.id));
+            movie.copiesAvailable -= 1; db.movieDao().updateMovie(movie);
+            runOnUiThread(() -> { Toast.makeText(this,"Film loué",Toast.LENGTH_SHORT).show(); refreshList(); });
+        }).start();
+    },
+    m -> { /* trailer → tâche 22 */ }
+);
 
 
