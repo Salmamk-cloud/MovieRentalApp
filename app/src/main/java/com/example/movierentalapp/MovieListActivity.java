@@ -32,4 +32,11 @@ profileBtn.setOnClickListener(v -> {
 });
 userId  = getIntent().getIntExtra("USER_ID_EXTRA", -1);
 username = getIntent().getStringExtra("USERNAME_EXTRA");
+private void seedIfEmptyThenLoadAll() {
+    new Thread(() -> {
+        List<Movie> all = db.movieDao().getAllMovies();
+        if (all == null || all.isEmpty()) db.movieDao().insertAllMovies(createDefaultMovies());
+        runOnUiThread(this::refreshList);
+    }).start();
+}
 
