@@ -24,3 +24,9 @@ movie -> {
     try { startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(movie.trailerUrl))); }
     catch (Exception e) { Toast.makeText(this,"Aucune app vidéo",Toast.LENGTH_LONG).show(); }
 }
+profileBtn.setOnClickListener(v -> {
+    Intent i = new Intent(this, ProfileActivity.class);
+    i.putExtra("USER_ID_EXTRA", userId);
+    i.putExtra("USERNAME_EXTRA", username);
+    startActivity(i);
+});
