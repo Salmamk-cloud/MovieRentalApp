@@ -30,3 +30,6 @@ profileBtn.setOnClickListener(v -> {
     i.putExtra("USERNAME_EXTRA", username);
     startActivity(i);
 });
+userId  = getIntent().getIntExtra("USER_ID_EXTRA", -1);
+username = getIntent().getStringExtra("USERNAME_EXTRA");
+
