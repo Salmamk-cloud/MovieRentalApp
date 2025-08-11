@@ -1,1 +1,5 @@
-
+<LinearLayout ...>
+    <EditText android:id="@+id/username_edit_text" ... />
+    <EditText android:id="@+id/password_edit_text" android:inputType="textPassword" ... />
+    <Button   android:id="@+id/sign_up_button"    android:text="S'inscrire" ... />
+</LinearLayout>
